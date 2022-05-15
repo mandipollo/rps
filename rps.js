@@ -12,3 +12,5 @@ function computerSelection() {
 }
 
 console.log(computerSelection());
+
+// function taking players selection
