@@ -4,7 +4,8 @@
 const playerSelectionRock = document.querySelector(`.selection-rock`);
 const playerSelectionPaper = document.querySelector(`.selection-paper`);
 const playerSelectionScissor = document.querySelector(`.selection-scissor`);
-
+let playerScoreLabel = document.querySelector(`.player-score`);
+let computerScoreLabel = document.querySelector(`.computer-score`);
 // store data
 let playerSelection;
 let computerSelectionValue;
@@ -32,12 +33,16 @@ console.log(computerSelectionValue);
 function playRound(computerSelectionValue, playerSelection) {
   if (computerSelectionValue === playerSelection) {
     console.log(`its a tie! computer choose ${computerSelectionValue}.`);
-    return computerScore++, playerScore++;
+    while (computerScore < 5 && playerScore < 5) {
+      return computerScore++, playerScore++;
+    }
   } else if (computerSelectionValue === `PAPER` && playerSelection === `ROCK`) {
     console.log(
       `computer wins !! ${computerSelectionValue} wins ${playerSelection}`
     );
-    return computerScore++;
+    while (computerScore < 5) {
+      return computerScore++;
+    }
   } else if (
     computerSelectionValue === `PAPER` &&
     playerSelection === `SCISSOR`
@@ -45,7 +50,9 @@ function playRound(computerSelectionValue, playerSelection) {
     console.log(
       `player wins !! ${playerSelection} wins against ${computerSelectionValue}`
     );
-    return playerScore++;
+    while (playerScore < 5) {
+      return playerScore++;
+    }
   } else if (
     computerSelectionValue === `ROCK` &&
     playerSelection === `SCISSOR`
@@ -53,12 +60,16 @@ function playRound(computerSelectionValue, playerSelection) {
     console.log(
       `computer wins !! ${computerSelectionValue} wins against ${playerSelection}`
     );
-    return computerScore++;
+    while (computerScore < 5) {
+      return computerScore++;
+    }
   } else if (computerSelectionValue === `ROCK` && playerSelection === `PAPER`) {
     console.log(
       `player wins !! ${playerSelection} wins against ${computerSelectionValue}`
     );
-    return playerScore++;
+    while (playerScore < 5) {
+      return playerScore++;
+    }
   } else if (
     computerSelectionValue === `SCISSOR` &&
     playerSelection === `PAPER`
@@ -66,7 +77,9 @@ function playRound(computerSelectionValue, playerSelection) {
     console.log(
       `computer wins !! ${computerSelectionValue} wins against ${playerSelection}`
     );
-    return computerScore++;
+    while (computerScore < 5) {
+      return computerScore++;
+    }
   } else if (
     computerSelectionValue === `SCISSOR` &&
     playerSelection === `ROCK`
@@ -74,7 +87,9 @@ function playRound(computerSelectionValue, playerSelection) {
     console.log(
       `player wins !! ${playerSelection} wins against ${computerSelectionValue}`
     );
-    return playerScore++;
+    while (playerScore < 5) {
+      return playerScore++;
+    }
   }
 }
 
@@ -95,6 +110,14 @@ playerSelectionRock.addEventListener(`click`, function () {
   //     console.log(`computer selects scissor ! you win the round`);
   //   }
   console.log(playerScore, computerScore);
+
+  playerScoreLabel.textContent = playerScore;
+  computerScoreLabel.textContent = computerScore;
+  if (computerScore === 5) {
+    alert(`computer won the game !!`);
+  } else if (playerScore === 5) {
+    alert(`you won the game`);
+  }
 });
 
 // 2. player selection paper
@@ -112,6 +135,13 @@ playerSelectionPaper.addEventListener(`click`, function () {
   //     console.log(`computer selects ROCK ! you win the round`);
   //   }
   console.log(playerScore, computerScore);
+  if (computerScore === 5) {
+    alert(`computer won the game !!`);
+  } else if (playerScore === 5) {
+    alert(`you won the game`);
+  }
+  playerScoreLabel.textContent = playerScore;
+  computerScoreLabel.textContent = computerScore;
 });
 
 // 3. player selection scissor
@@ -128,4 +158,11 @@ playerSelectionScissor.addEventListener(`click`, function () {
   //     console.log(`computer selects PAPER ! you win the round`);
   //   }
   console.log(playerScore, computerScore);
+  if (computerScore === 5) {
+    alert(`computer won the game !!`);
+  } else if (playerScore === 5) {
+    alert(`you won the game`);
+  }
+  playerScoreLabel.textContent = playerScore;
+  computerScoreLabel.textContent = computerScore;
 });
