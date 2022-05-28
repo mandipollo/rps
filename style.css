@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.selection-div {
+  text-align: center;
+  display: flex;
+}
